@@ -29,7 +29,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .vertical
+        configuration.planeDetection = .horizontal
         
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
@@ -43,6 +43,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
+    
 
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if let planeAnchor = anchor as? ARPlaneAnchor {
