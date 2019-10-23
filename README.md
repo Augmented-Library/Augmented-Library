@@ -1,6 +1,6 @@
 # Augmented-Library
 Requirements:
-- macOS 10.13+
+- macOS 10.14+
 - iOS 11+ support
-- Xcode 9.2.3+
+- Xcode 11+
 - Swift 5
