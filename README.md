@@ -4,3 +4,6 @@ Requirements:
 - iOS 11+ support
 - Xcode 11+
 - Swift 5.1
+QR Scanner Prototype:
+- Stops on first QR code found
+- Value stored within QR code is printed to Xcode output window
