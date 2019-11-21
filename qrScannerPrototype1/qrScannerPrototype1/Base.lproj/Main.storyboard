@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -10,17 +11,35 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="qrScannerPrototype1" customModuleProvider="target" sceneMemberID="viewController">
-                    <label key="view" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cQW-ER-D5t">
+                    <view key="view" contentMode="scaleToFill" id="cL7-Ht-0yE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="QR Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXJ-F8-A2B">
+                                <rect key="frame" x="81" y="401" width="212" height="130"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mlU-NL-R3a" firstAttribute="bottom" secondItem="bXJ-F8-A2B" secondAttribute="bottom" constant="136" id="7iI-Vx-iby"/>
+                            <constraint firstItem="bXJ-F8-A2B" firstAttribute="leading" secondItem="mlU-NL-R3a" secondAttribute="leading" constant="81" id="9LR-D1-Xzn"/>
+                            <constraint firstItem="bXJ-F8-A2B" firstAttribute="top" secondItem="mlU-NL-R3a" secondAttribute="top" constant="401" id="9zr-DW-ImT"/>
+                            <constraint firstItem="bXJ-F8-A2B" firstAttribute="centerX" secondItem="cL7-Ht-0yE" secondAttribute="centerX" id="KcC-ra-e08"/>
+                        </constraints>
+                        <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
+                        <viewLayoutGuide key="safeArea" id="mlU-NL-R3a"/>
+                    </view>
+                    <connections>
+                        <outlet property="URL" destination="bXJ-F8-A2B" id="Kax-P1-A9V"/>
+                        <outlet property="previewView" destination="cL7-Ht-0yE" id="hc6-hr-1gn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="96"/>
+            <point key="canvasLocation" x="138.40000000000001" y="95.802098950524751"/>
         </scene>
     </scenes>
 </document>

@@ -10,12 +10,14 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
+    
+    @IBOutlet var previewView: UIView!
     @IBOutlet weak var URL: UILabel!
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
-    
     override func viewDidLoad() {
+        print("in viewDidLoad()")
         super.viewDidLoad()
         
         captureSession = AVCaptureSession()
@@ -35,7 +37,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
             failed()
             return
         }
-        
+
         let metadataOutput = AVCaptureMetadataOutput()
         
         if (captureSession.canAddOutput(metadataOutput)) {
@@ -49,9 +51,11 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = view.layer.bounds
-        previewLayer.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(previewLayer)
+//        previewLayer.frame = view.layer.bounds
+        previewLayer.frame.size.height = view.layer.bounds.height/2
+        previewLayer.frame.size.width = view.layer.bounds.width
+        previewLayer.videoGravity = .resize
+        self.previewView.layer.addSublayer(previewLayer)
         
         captureSession.startRunning()
     }
@@ -64,6 +68,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("in viewWillAppear()")
         super.viewWillAppear(animated)
         
         if (captureSession?.isRunning == false) {
@@ -72,6 +77,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        print("in viewWillDisappear()")
         super.viewWillDisappear(animated)
         
         if (captureSession?.isRunning == true) {
@@ -80,7 +86,9 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        print("in metadataOutput()")
         captureSession.stopRunning()
+//        self.previewLayer.removeFromSuperlayer()
         
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
@@ -93,8 +101,9 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     }
     
     func found(code: String) {
+        print("in found()")
         print(code)
-        //self.URL.text = code
+        self.URL.text = code
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
