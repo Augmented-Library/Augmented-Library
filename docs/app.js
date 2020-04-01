@@ -17,7 +17,7 @@ const readTest = document.querySelector('#read');
 readTest.addEventListener("click", function(){
   firestore.collection("libserv").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data()}`);
+          console.log(doc.data());
       });
   });
 });
