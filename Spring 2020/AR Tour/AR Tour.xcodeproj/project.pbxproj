@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		155BD0BC2453F4C6001E6E03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 155BD0BB2453F4C6001E6E03 /* GoogleService-Info.plist */; };
 		15D42B3E23FA2F330099B734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D42B3D23FA2F330099B734 /* AppDelegate.swift */; };
 		15D42B4023FA2F330099B734 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D42B3F23FA2F330099B734 /* SceneDelegate.swift */; };
 		15D42B4223FA2F330099B734 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D42B4123FA2F330099B734 /* ViewController.swift */; };
 		15D42B4523FA2F330099B734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D42B4323FA2F330099B734 /* Main.storyboard */; };
 		15D42B4723FA2F340099B734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D42B4623FA2F340099B734 /* Assets.xcassets */; };
 		15D42B4A23FA2F340099B734 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D42B4823FA2F340099B734 /* LaunchScreen.storyboard */; };
+		5F3DEC812E53B27D56F042EF /* Pods_AR_Tour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25D4F033D161F7B273EA041 /* Pods_AR_Tour.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		155BD0BB2453F4C6001E6E03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15D42B3A23FA2F330099B734 /* AR Tour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR Tour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D42B3D23FA2F330099B734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15D42B3F23FA2F330099B734 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		15D42B4623FA2F340099B734 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15D42B4923FA2F340099B734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15D42B4B23FA2F340099B734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62143EF6E70145670FD5F203 /* Pods-AR Tour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Tour.release.xcconfig"; path = "Target Support Files/Pods-AR Tour/Pods-AR Tour.release.xcconfig"; sourceTree = "<group>"; };
+		DBD6C37C51CB2F0C5C64606F /* Pods-AR Tour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR Tour.debug.xcconfig"; path = "Target Support Files/Pods-AR Tour/Pods-AR Tour.debug.xcconfig"; sourceTree = "<group>"; };
+		F25D4F033D161F7B273EA041 /* Pods_AR_Tour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_Tour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F3DEC812E53B27D56F042EF /* Pods_AR_Tour.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				15D42B3C23FA2F330099B734 /* AR Tour */,
 				15D42B3B23FA2F330099B734 /* Products */,
+				BE637B93C8E29AFCFB1507C2 /* Pods */,
+				94D0CB303442FBB052719F38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +72,27 @@
 				15D42B4623FA2F340099B734 /* Assets.xcassets */,
 				15D42B4823FA2F340099B734 /* LaunchScreen.storyboard */,
 				15D42B4B23FA2F340099B734 /* Info.plist */,
+				155BD0BB2453F4C6001E6E03 /* GoogleService-Info.plist */,
 			);
 			path = "AR Tour";
+			sourceTree = "<group>";
+		};
+		94D0CB303442FBB052719F38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F25D4F033D161F7B273EA041 /* Pods_AR_Tour.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE637B93C8E29AFCFB1507C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DBD6C37C51CB2F0C5C64606F /* Pods-AR Tour.debug.xcconfig */,
+				62143EF6E70145670FD5F203 /* Pods-AR Tour.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15D42B4E23FA2F340099B734 /* Build configuration list for PBXNativeTarget "AR Tour" */;
 			buildPhases = (
+				33BE6BCCB0293AB1B6BB69C2 /* [CP] Check Pods Manifest.lock */,
 				15D42B3623FA2F330099B734 /* Sources */,
 				15D42B3723FA2F330099B734 /* Frameworks */,
 				15D42B3823FA2F330099B734 /* Resources */,
+				99DC6A74E787FD7A8C6E046B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,10 +158,53 @@
 				15D42B4A23FA2F340099B734 /* LaunchScreen.storyboard in Resources */,
 				15D42B4723FA2F340099B734 /* Assets.xcassets in Resources */,
 				15D42B4523FA2F330099B734 /* Main.storyboard in Resources */,
+				155BD0BC2453F4C6001E6E03 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33BE6BCCB0293AB1B6BB69C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AR Tour-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99DC6A74E787FD7A8C6E046B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AR Tour/Pods-AR Tour-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AR Tour/Pods-AR Tour-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AR Tour/Pods-AR Tour-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		15D42B3623FA2F330099B734 /* Sources */ = {
@@ -282,6 +355,7 @@
 		};
 		15D42B4F23FA2F340099B734 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBD6C37C51CB2F0C5C64606F /* Pods-AR Tour.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +374,7 @@
 		};
 		15D42B5023FA2F340099B734 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62143EF6E70145670FD5F203 /* Pods-AR Tour.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
