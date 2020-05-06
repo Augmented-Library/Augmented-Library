@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EDA8757F2461DC7100B28B50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8757E2461DC7100B28B50 /* AppDelegate.swift */; };
+		EDA875812461DC7100B28B50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA875802461DC7100B28B50 /* SceneDelegate.swift */; };
+		EDA875832461DC7100B28B50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA875822461DC7100B28B50 /* ViewController.swift */; };
+		EDA875862461DC7100B28B50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA875842461DC7100B28B50 /* Main.storyboard */; };
+		EDA875882461DC7800B28B50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDA875872461DC7800B28B50 /* Assets.xcassets */; };
+		EDA8758B2461DC7800B28B50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA875892461DC7800B28B50 /* LaunchScreen.storyboard */; };
+		EDA875962461DC7800B28B50 /* DibnerTourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA875952461DC7800B28B50 /* DibnerTourTests.swift */; };
+		EDA875A12461EF2400B28B50 /* diber-atrium.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA875A02461EF2400B28B50 /* diber-atrium.png */; };
+		EDA875A42461F57C00B28B50 /* diber-atrium (1).png in Resources */ = {isa = PBXBuildFile; fileRef = EDA875A22461F57C00B28B50 /* diber-atrium (1).png */; };
+		EDA875A52461F57C00B28B50 /* diber-atrium (2).png in Resources */ = {isa = PBXBuildFile; fileRef = EDA875A32461F57C00B28B50 /* diber-atrium (2).png */; };
+		EDA875AA2461F59800B28B50 /* Path 6.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA875A62461F59800B28B50 /* Path 6.png */; };
+		EDA875AB2461F59800B28B50 /* Path 7.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA875A72461F59800B28B50 /* Path 7.png */; };
+		EDA875AC2461F59800B28B50 /* Path 3.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA875A82461F59800B28B50 /* Path 3.png */; };
+		EDA875AD2461F59800B28B50 /* Path 2.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA875A92461F59800B28B50 /* Path 2.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDA875922461DC7800B28B50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDA875732461DC7100B28B50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDA8757A2461DC7100B28B50;
+			remoteInfo = DibnerTour;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EDA8757B2461DC7100B28B50 /* DibnerTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DibnerTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDA8757E2461DC7100B28B50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDA875802461DC7100B28B50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EDA875822461DC7100B28B50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EDA875852461DC7100B28B50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDA875872461DC7800B28B50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDA8758A2461DC7800B28B50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EDA8758C2461DC7800B28B50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDA875912461DC7800B28B50 /* DibnerTourTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DibnerTourTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDA875952461DC7800B28B50 /* DibnerTourTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DibnerTourTests.swift; sourceTree = "<group>"; };
+		EDA875972461DC7800B28B50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDA875A02461EF2400B28B50 /* diber-atrium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diber-atrium.png"; sourceTree = "<group>"; };
+		EDA875A22461F57C00B28B50 /* diber-atrium (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diber-atrium (1).png"; sourceTree = "<group>"; };
+		EDA875A32461F57C00B28B50 /* diber-atrium (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diber-atrium (2).png"; sourceTree = "<group>"; };
+		EDA875A62461F59800B28B50 /* Path 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Path 6.png"; sourceTree = "<group>"; };
+		EDA875A72461F59800B28B50 /* Path 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Path 7.png"; sourceTree = "<group>"; };
+		EDA875A82461F59800B28B50 /* Path 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Path 3.png"; sourceTree = "<group>"; };
+		EDA875A92461F59800B28B50 /* Path 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Path 2.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDA875782461DC7100B28B50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDA8758E2461DC7800B28B50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDA875722461DC7100B28B50 = {
+			isa = PBXGroup;
+			children = (
+				EDA8757D2461DC7100B28B50 /* DibnerTour */,
+				EDA875942461DC7800B28B50 /* DibnerTourTests */,
+				EDA8757C2461DC7100B28B50 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDA8757C2461DC7100B28B50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDA8757B2461DC7100B28B50 /* DibnerTour.app */,
+				EDA875912461DC7800B28B50 /* DibnerTourTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDA8757D2461DC7100B28B50 /* DibnerTour */ = {
+			isa = PBXGroup;
+			children = (
+				EDA875A92461F59800B28B50 /* Path 2.png */,
+				EDA875A82461F59800B28B50 /* Path 3.png */,
+				EDA875A62461F59800B28B50 /* Path 6.png */,
+				EDA875A72461F59800B28B50 /* Path 7.png */,
+				EDA875A02461EF2400B28B50 /* diber-atrium.png */,
+				EDA875A22461F57C00B28B50 /* diber-atrium (1).png */,
+				EDA875A32461F57C00B28B50 /* diber-atrium (2).png */,
+				EDA8757E2461DC7100B28B50 /* AppDelegate.swift */,
+				EDA875802461DC7100B28B50 /* SceneDelegate.swift */,
+				EDA875822461DC7100B28B50 /* ViewController.swift */,
+				EDA875842461DC7100B28B50 /* Main.storyboard */,
+				EDA875872461DC7800B28B50 /* Assets.xcassets */,
+				EDA875892461DC7800B28B50 /* LaunchScreen.storyboard */,
+				EDA8758C2461DC7800B28B50 /* Info.plist */,
+			);
+			path = DibnerTour;
+			sourceTree = "<group>";
+		};
+		EDA875942461DC7800B28B50 /* DibnerTourTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDA875952461DC7800B28B50 /* DibnerTourTests.swift */,
+				EDA875972461DC7800B28B50 /* Info.plist */,
+			);
+			path = DibnerTourTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDA8757A2461DC7100B28B50 /* DibnerTour */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDA8759A2461DC7800B28B50 /* Build configuration list for PBXNativeTarget "DibnerTour" */;
+			buildPhases = (
+				EDA875772461DC7100B28B50 /* Sources */,
+				EDA875782461DC7100B28B50 /* Frameworks */,
+				EDA875792461DC7100B28B50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DibnerTour;
+			productName = DibnerTour;
+			productReference = EDA8757B2461DC7100B28B50 /* DibnerTour.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EDA875902461DC7800B28B50 /* DibnerTourTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDA8759D2461DC7800B28B50 /* Build configuration list for PBXNativeTarget "DibnerTourTests" */;
+			buildPhases = (
+				EDA8758D2461DC7800B28B50 /* Sources */,
+				EDA8758E2461DC7800B28B50 /* Frameworks */,
+				EDA8758F2461DC7800B28B50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDA875932461DC7800B28B50 /* PBXTargetDependency */,
+			);
+			name = DibnerTourTests;
+			productName = DibnerTourTests;
+			productReference = EDA875912461DC7800B28B50 /* DibnerTourTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDA875732461DC7100B28B50 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Andrew Qu";
+				TargetAttributes = {
+					EDA8757A2461DC7100B28B50 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					EDA875902461DC7800B28B50 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = EDA8757A2461DC7100B28B50;
+					};
+				};
+			};
+			buildConfigurationList = EDA875762461DC7100B28B50 /* Build configuration list for PBXProject "DibnerTour" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDA875722461DC7100B28B50;
+			productRefGroup = EDA8757C2461DC7100B28B50 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDA8757A2461DC7100B28B50 /* DibnerTour */,
+				EDA875902461DC7800B28B50 /* DibnerTourTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDA875792461DC7100B28B50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDA875A12461EF2400B28B50 /* diber-atrium.png in Resources */,
+				EDA875AB2461F59800B28B50 /* Path 7.png in Resources */,
+				EDA8758B2461DC7800B28B50 /* LaunchScreen.storyboard in Resources */,
+				EDA875A42461F57C00B28B50 /* diber-atrium (1).png in Resources */,
+				EDA875882461DC7800B28B50 /* Assets.xcassets in Resources */,
+				EDA875862461DC7100B28B50 /* Main.storyboard in Resources */,
+				EDA875AA2461F59800B28B50 /* Path 6.png in Resources */,
+				EDA875AC2461F59800B28B50 /* Path 3.png in Resources */,
+				EDA875AD2461F59800B28B50 /* Path 2.png in Resources */,
+				EDA875A52461F57C00B28B50 /* diber-atrium (2).png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDA8758F2461DC7800B28B50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDA875772461DC7100B28B50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDA875832461DC7100B28B50 /* ViewController.swift in Sources */,
+				EDA8757F2461DC7100B28B50 /* AppDelegate.swift in Sources */,
+				EDA875812461DC7100B28B50 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDA8758D2461DC7800B28B50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDA875962461DC7800B28B50 /* DibnerTourTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDA875932461DC7800B28B50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDA8757A2461DC7100B28B50 /* DibnerTour */;
+			targetProxy = EDA875922461DC7800B28B50 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EDA875842461DC7100B28B50 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDA875852461DC7100B28B50 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDA875892461DC7800B28B50 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDA8758A2461DC7800B28B50 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDA875982461DC7800B28B50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EDA875992461DC7800B28B50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDA8759B2461DC7800B28B50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2KG46N36C5;
+				INFOPLIST_FILE = DibnerTour/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.AugmentedLibrary.DibnerTour;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDA8759C2461DC7800B28B50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2KG46N36C5;
+				INFOPLIST_FILE = DibnerTour/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.AugmentedLibrary.DibnerTour;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EDA8759E2461DC7800B28B50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2KG46N36C5;
+				INFOPLIST_FILE = DibnerTourTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.AugmentedLibrary.DibnerTourTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DibnerTour.app/DibnerTour";
+			};
+			name = Debug;
+		};
+		EDA8759F2461DC7800B28B50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2KG46N36C5;
+				INFOPLIST_FILE = DibnerTourTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.AugmentedLibrary.DibnerTourTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DibnerTour.app/DibnerTour";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDA875762461DC7100B28B50 /* Build configuration list for PBXProject "DibnerTour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDA875982461DC7800B28B50 /* Debug */,
+				EDA875992461DC7800B28B50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDA8759A2461DC7800B28B50 /* Build configuration list for PBXNativeTarget "DibnerTour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDA8759B2461DC7800B28B50 /* Debug */,
+				EDA8759C2461DC7800B28B50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDA8759D2461DC7800B28B50 /* Build configuration list for PBXNativeTarget "DibnerTourTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDA8759E2461DC7800B28B50 /* Debug */,
+				EDA8759F2461DC7800B28B50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDA875732461DC7100B28B50 /* Project object */;
+}
