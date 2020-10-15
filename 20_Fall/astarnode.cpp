@@ -2,8 +2,8 @@
 #include <list>
 using namespace std;
 
-#node class to indicate points of interest in library and main intersections
-#wip: showing the actual path between two nodes, since they won't all be straight lines
+//node class to indicate points of interest in library and main intersections
+//wip: showing the actual path between two nodes, since they won't all be straight lines
 class Node{
 public:
   string id;
