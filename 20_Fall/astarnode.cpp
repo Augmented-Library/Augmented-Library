@@ -6,6 +6,7 @@ using namespace std;
 //wip: showing the actual path between two nodes, since they won't all be straight lines
 class Node{
 public:
+  //should work like a doubly linked list
   struct NodeConnect(Node* node1, Node* node2, float dist){
     Node* node1; //original
     Node* node2;
