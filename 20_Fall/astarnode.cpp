@@ -16,7 +16,7 @@ public:
   string id;
   string displayName;
   
-  NodeConnect[] adjacentNodes;
+  List<NodeConnect> adjacentNodes;
   
   //int location_x; //I think locations are unneccessary unless we're plotting the floor-plan by a grid-system
   //int location_y;
@@ -31,6 +31,7 @@ public:
     newConnect.node1 = this;
     newConnect.node2 = addNode;
     newConnect.dist = newDist;
+    adjacentNodes.push_back(newConnect);
   }
   
   float getDistTo(Node* destination){ //only works for straight shots atm
