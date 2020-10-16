@@ -6,28 +6,57 @@ using namespace std;
 //wip: showing the actual path between two nodes, since they won't all be straight lines
 class Node{
 public:
+  struct NodeConnect(Node* node1, Node* node2, float dist){
+    Node* node1; //original
+    Node* node2;
+    float dist;
+  }
+  
   string id;
   string displayName;
+  
+  NodeConnect[] adjacentNodes;
+  
+  //int location_x; //I think locations are unneccessary unless we're plotting the floor-plan by a grid-system
+  //int location_y;
 
-  int location_x;
-  int location_y;
-  list<Node*> adjacentNodes;
-
-  Node(string idname, string dispname, int x, int y){
+  Node(string idname, string dispname){
     id = idname;
     displayName = dispname;
-    location_x = x;
-    location_y = y;
   }
-
-  string displayNode(){
+  
+  void addConnect(Node* addNode, float newDist){
+    NodeConnect newConnect;
+    newConnect.node1 = this;
+    newConnect.node2 = addNode;
+    newConnect.dist = newDist;
+  }
+  
+  float getDistTo(Node* destination){ //only works for straight shots atm
+    float totalDist = 0
+      //fancy a* stuff
+    Node n = *this;
+    while (&n != destination){
+      totalDist += adjacentNodes[0].dist;
+      n = *adjacentNodes[0].node2;
+    }
+    return totalDist;
+  }
+  
+  string displayNode(){ //idk if we wana use fancy ostream stuff for toString but this works
     return displayName + "\n";
+  }
+  
+  bool organize(){
+    //order adjacentNodes by distance, returns true if already ordered
+    return false;
   }
 };
 
 int main() {
-  Node entrance("3_entrance", "Entrance", 0, 0);
-  Node front_desk("3_frontdesk", "Front Desk", 0, 10);
+  Node entrance("3_entrance", "Entrance");
+  Node front_desk("3_frontdesk", "Front Desk");
+  entrence.addConnect(*front_desk, 10);
   cout << entrance.displayNode();
   return 0;
 }
