@@ -39,8 +39,8 @@ public:
       //fancy a* stuff
     Node n = *this;
     while (&n != destination){
-      totalDist += adjacentNodes[0].dist;
-      n = *adjacentNodes[0].node2;
+      totalDist += n.adjacentNodes[0].dist;
+      n = *n.adjacentNodes[0].node2;
     }
     return totalDist;
   }
