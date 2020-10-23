@@ -2,7 +2,7 @@
 https://augmented-library.github.io/Augmented-Library/
 
 Purpose:
-- This project aims to improve the overall accessibility of NYU's campus' with AR-based support services. The current focus is to provide informational services and better foster serepedipetous discovery relating to clubs, events, and library navigation however in the future we aim to add a wide range of support services such as campus tours.
+- This project aims to improve the overall accessibility of NYU's campus' with AR-based support services. The current focus is to provide informational services and better foster serendipitous discovery relating to clubs, events, and library navigation however in the future we aim to add a wide range of support services such as campus tours.
 
 Requirements:
 - macOS 10.14.3+
