@@ -8,12 +8,16 @@ Main view controller for the AR experience.
 import ARKit
 import SceneKit
 import UIKit
+import FirebaseDatabase
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     
     @IBOutlet weak var blurView: UIVisualEffectView!
+    
+    var ref: DatabaseReference!
+    var databaseHandle:DatabaseHandle?
     
     /// The view controller that displays the status and "restart experience" UI.
     lazy var statusViewController: StatusViewController = {
@@ -136,6 +140,31 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         switch imageName {
         case "dataManagement":
             libCalURL = "https://nyu.libcal.com/calendar?cid=1564&t=g&d=0000-00-00&cal=1564&ct=4295&inc=0"
+        case "firebase_logo":
+                self.ref = Database.database().reference().child("Posters").child(imageName);
+                
+                self.ref.observeSingleEvent(of: .value, with: {(snapshot) in
+                    if(!snapshot.exists()){
+                        return
+                    }
+                    let value = snapshot.value as? NSDictionary
+                    let fbTitle = value?["title"] as? String ?? ""
+                    let fbDescription = value?["description"] as? String ?? ""
+                    //self.statusViewController.showMessage("Detected image “\(fbDescription)”")
+                    let alert = UIAlertController(
+                        title: fbTitle,
+                        message: fbDescription,
+                        preferredStyle: .alert
+                    )
+                    alert.addAction(UIAlertAction(
+                        title: "YES", style: .default, handler: nil
+                    ))
+                    alert.addAction(UIAlertAction(
+                        title: "NO", style: .cancel, handler: nil
+                    ))
+                    
+                    self.present(alert, animated: true)
+                })
         default:
             libCalURL = ""
         }
