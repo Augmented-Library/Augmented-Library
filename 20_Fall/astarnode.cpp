@@ -6,59 +6,81 @@ using namespace std;
 //wip: showing the actual path between two nodes, since they won't all be straight lines
 class Node{
 public:
-  //should work like a doubly linked list
+  /*//should work like a doubly linked list
   struct NodeConnect(Node* node1, Node* node2, float dist){
     Node* node1; //original
     Node* node2;
     float dist;
-  }
-  
+  }*/
+
   string id;
   string displayName;
-  
-  List<NodeConnect> adjacentNodes;
-  
-  //int location_x; //I think locations are unneccessary unless we're plotting the floor-plan by a grid-system
-  //int location_y;
+
+  int location_x;
+  int location_y;
+
+  Node* adjacentNodes[5];
 
   Node(string idname, string dispname){
     id = idname;
     displayName = dispname;
+    for(int i = 0; i<5; i++){
+      adjacentNodes[i] = nullptr;
+    }
   }
-  
-  void addConnect(Node* addNode, float newDist){
+
+  /*void addConnect(Node* addNode, float newDist){
     NodeConnect newConnect;
     newConnect.node1 = this;
     newConnect.node2 = addNode;
     newConnect.dist = newDist;
     adjacentNodes.push_back(newConnect);
+  }*/
+
+  void addNode(Node adjacent){
+    this->addNode(&adjacent);
   }
-  
-  float getDistTo(Node* destination){ //only works for straight shots atm
-    float totalDist = 0
-      //fancy a* stuff
-    Node n = *this;
-    while (&n != destination){
-      totalDist += n.adjacentNodes[0].dist;
-      n = *n.adjacentNodes[0].node2;
+
+  void addNode(Node* adjacent){
+    for(int i = 0; i < 5; i++){
+      if (adjacentNodes[i] == nullptr){
+        adjacentNodes[i] = adjacent;
+        break;
+      }
+      if (adjacentNodes[i] == adjacent){
+        return;
+      }
     }
-    return totalDist;
+    adjacent->addNode(this);
   }
-  
-  string displayNode(){ //idk if we wana use fancy ostream stuff for toString but this works
-    return displayName + "\n";
-  }
-  
-  bool organize(){
-    //order adjacentNodes by distance, returns true if already ordered
-    return false;
+
+  void displayNode(){
+    string retStr = displayName + "\n";
+    for (Node* node : adjacentNodes){
+      if (node != nullptr){
+        retStr += "\t" + node->displayName + "\n";
+      }
+    }
+    cout << retStr;
   }
 };
 
 int main() {
   Node entrance("3_entrance", "Entrance");
   Node front_desk("3_frontdesk", "Front Desk");
-  entrence.addConnect(*front_desk, 10);
-  cout << entrance.displayNode();
+  Node intersection1("3_intersection_1", "Intersection 1");
+  Node sofa("3_sofa", "Sofa");
+  Node computer("3_computer_1", "Computers 1");
+
+  entrance.addNode(front_desk);
+  intersection1.addNode(sofa);
+  intersection1.addNode(computer);
+
+  entrance.displayNode();
+  front_desk.displayNode();
+  intersection1.displayNode();
+  sofa.displayNode();
+  computer.displayNode();
+
   return 0;
 }
