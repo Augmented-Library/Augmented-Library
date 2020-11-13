@@ -6,12 +6,6 @@ using namespace std;
 //wip: showing the actual path between two nodes, since they won't all be straight lines
 class Node{
 public:
-  /*//should work like a doubly linked list
-  struct NodeConnect(Node* node1, Node* node2, float dist){
-    Node* node1; //original
-    Node* node2;
-    float dist;
-  }*/
 
   string id;
   string displayName;
@@ -63,6 +57,35 @@ public:
     }
     cout << retStr;
   }
+};
+
+class Path{
+public:
+  //must be in alphabetical order (?)
+  //to reduce no. of repeated paths
+  string node1ID;
+  string node2ID;
+
+  long actDist;
+
+  Path(string id1, string id2, long distance){
+    if (id1.compare(id2) == -1){
+      node1ID = id1;
+      node2ID = id2;
+    }
+    else {
+      node1ID = id2;
+      node2ID = id1;
+    }
+    actDist = distance;
+  }
+};
+
+struct AStarNode{
+  Node* location;
+  //each node id needed to get from starting to current node
+  //will be separated by comma
+  string path;
 };
 
 int main() {
