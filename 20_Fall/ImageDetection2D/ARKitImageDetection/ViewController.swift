@@ -8,7 +8,7 @@ Main view controller for the AR experience.
 import ARKit
 import SceneKit
 import UIKit
-import FirebaseDatabase
+import Firebase
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
@@ -16,8 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var blurView: UIVisualEffectView!
     
-    var ref: DatabaseReference!
-    var databaseHandle:DatabaseHandle?
+    var docRef : DocumentReference!
     
     /// The view controller that displays the status and "restart experience" UI.
     lazy var statusViewController: StatusViewController = {
@@ -113,8 +112,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             node.addChildNode(planeNode)
             
             //Get URL based on name of detected image
-            let detectedImageName = referenceImage.name
-            self.loadURL(imageName: detectedImageName!)
+            let detectedImageName = referenceImage.name ?? ""
+            
+            if(detectedImageName != "firebaseLogo"){
+                self.loadURL(imageName: detectedImageName)
+            }
+            else{
+                switch detectedImageName{
+                    case "firebaseLogo":
+                        self.createAnAlert(imageName: detectedImageName)
+                        print("DONE")
+                        
+                    default:
+                        print("???")
+                }
+            }
+            
         }
 
         DispatchQueue.main.async {
@@ -138,22 +151,54 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func loadURL(imageName: String){
         var libCalURL = ""
         switch imageName {
-        case "dataManagement":
-            libCalURL = "https://nyu.libcal.com/calendar?cid=1564&t=g&d=0000-00-00&cal=1564&ct=4295&inc=0"
-        case "firebase_logo":
-                self.ref = Database.database().reference().child("Posters").child(imageName);
-                
-                self.ref.observeSingleEvent(of: .value, with: {(snapshot) in
-                    if(!snapshot.exists()){
-                        return
-                    }
-                    let value = snapshot.value as? NSDictionary
-                    let fbTitle = value?["title"] as? String ?? ""
-                    let fbDescription = value?["description"] as? String ?? ""
+            case "dataManagement":
+                libCalURL = "https://nyu.libcal.com/calendar?cid=1564&t=g&d=0000-00-00&cal=1564&ct=4295&inc=0"
+            default:
+                libCalURL = ""
+            }
+        if let url = URL(string: libCalURL) {
+            DispatchQueue.main.async {
+                UIApplication.shared.open(url)
+            }
+        }
+    }
+    
+    func getTitle(imageName: String){
+        
+    }
+    
+    func createAnAlert(imageName: String){
+        print("print")
+        let db = Firestore.firestore()
+        //self.ref = Database.database().reference().child("Posters").child(imageName);
+        
+        
+        let flyersRef = db.collection("flyers")
+        let flyerQuery = flyersRef.whereField("title", isEqualTo: imageName)
+        print("BEGIN QUERY")
+        flyerQuery.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            }
+            else {
+                for document in querySnapshot!.documents {
+                    /*
+                    let docId = document.documentID
+                    let latMax = document.get("latMax") as! String
+                    let latMin = document.get("latMin") as! String
+                    let lonMax = document.get("lonMax") as! String
+                    let lonMin = document.get("lonMin") as! String
+                    print(docId, latMax, latMin, lonMax, lonMin)
+                    */
+                    let flyerTitle = document.get("title") as! String
+                    let flyerDes = document.get("description") as! String
+                    // let flyerLink = document.get("description") as! String
                     //self.statusViewController.showMessage("Detected image “\(fbDescription)”")
+                    
+                    
                     let alert = UIAlertController(
-                        title: fbTitle,
-                        message: fbDescription,
+                        title: flyerTitle,
+                        message: flyerDes,
                         preferredStyle: .alert
                     )
                     alert.addAction(UIAlertAction(
@@ -164,14 +209,50 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     ))
                     
                     self.present(alert, animated: true)
-                })
-        default:
-            libCalURL = ""
+                    print("ALERT CREATED")
+                }
+                
+            }
+            
+            
         }
-        if let url = URL(string: libCalURL) {
-            DispatchQueue.main.async {
-                UIApplication.shared.open(url)
+        print("END QUERY")
+        
+        /*
+        flyerQuery.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
             }
         }
+        
+        
+        self.ref.observeSingleEvent(of: .value, with: {(snapshot) in
+            if(!snapshot.exists()){
+                return
+            }
+            let value = snapshot.value as? NSDictionary
+            let fbTitle = value?["title"] as? String ?? ""
+            let fbDescription = value?["description"] as? String ?? ""
+            //self.statusViewController.showMessage("Detected image “\(fbDescription)”")
+            let alert = UIAlertController(
+                title: fbTitle,
+                message: fbDescription,
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(
+                title: "YES", style: .default, handler: nil
+            ))
+            alert.addAction(UIAlertAction(
+                title: "NO", style: .cancel, handler: nil
+            ))
+            
+            self.present(alert, animated: true)
+        })
+        */
     }
+    
 }
