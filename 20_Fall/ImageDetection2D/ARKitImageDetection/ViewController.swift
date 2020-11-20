@@ -168,34 +168,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func createAnAlert(imageName: String){
-        print("print")
         let db = Firestore.firestore()
-        //self.ref = Database.database().reference().child("Posters").child(imageName);
-        
-        
         let flyersRef = db.collection("flyers")
         let flyerQuery = flyersRef.whereField("title", isEqualTo: imageName)
-        print("BEGIN QUERY")
+        // should just this TBH: 
+        // db.collection("flyers").whereField("title", isEqualTo: imageName)
         flyerQuery.getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             }
             else {
+                print("IN THE ELSE PORTION")
                 for document in querySnapshot!.documents {
-                    /*
-                    let docId = document.documentID
-                    let latMax = document.get("latMax") as! String
-                    let latMin = document.get("latMin") as! String
-                    let lonMax = document.get("lonMax") as! String
-                    let lonMin = document.get("lonMin") as! String
-                    print(docId, latMax, latMin, lonMax, lonMin)
-                    */
                     let flyerTitle = document.get("title") as! String
                     let flyerDes = document.get("description") as! String
-                    // let flyerLink = document.get("description") as! String
-                    //self.statusViewController.showMessage("Detected image “\(fbDescription)”")
-                    
-                    
                     let alert = UIAlertController(
                         title: flyerTitle,
                         message: flyerDes,
@@ -207,52 +193,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     alert.addAction(UIAlertAction(
                         title: "NO", style: .cancel, handler: nil
                     ))
-                    
                     self.present(alert, animated: true)
-                    print("ALERT CREATED")
-                }
-                
-            }
-            
-            
-        }
-        print("END QUERY")
-        
-        /*
-        flyerQuery.getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
                 }
             }
         }
-        
-        
-        self.ref.observeSingleEvent(of: .value, with: {(snapshot) in
-            if(!snapshot.exists()){
-                return
-            }
-            let value = snapshot.value as? NSDictionary
-            let fbTitle = value?["title"] as? String ?? ""
-            let fbDescription = value?["description"] as? String ?? ""
-            //self.statusViewController.showMessage("Detected image “\(fbDescription)”")
-            let alert = UIAlertController(
-                title: fbTitle,
-                message: fbDescription,
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(
-                title: "YES", style: .default, handler: nil
-            ))
-            alert.addAction(UIAlertAction(
-                title: "NO", style: .cancel, handler: nil
-            ))
-            
-            self.present(alert, animated: true)
-        })
-        */
     }
     
 }
