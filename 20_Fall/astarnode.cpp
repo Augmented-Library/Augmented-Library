@@ -114,24 +114,60 @@ class Library{ //might be useful..?
   string name;
 };
 
+//test only with same floor nodes
 double getEstimatedDist(Node* src, Node* dst){
   int srcFl = stoi(src->id.substr(0,1));
   int dstFl = stoi(dst->id.substr(0,1));
-  if (srcFl == dstFl){ //on same floor
-    double srcX = src->location_x;
-    double srcY = src->location_y;
-    double dstX = dst->location_x;
-    double dstY = dst->location_y;
 
-    return sqrt(pow(srcX - dstX,2) + pow(srcY - dstY,2));
+  double srcX = src->location_x;
+  double srcY = src->location_y;
+  double dstX = dst->location_x;
+  double dstY = dst->location_y;
+
+  if (srcFl == dstFl){ //on same floor
+    return pythagDist(srcX, srcY, dstX, dstY);
   }
   else { //on different floor
-    // WIP
+    // WIP - missing a lot do not use
     //will only account for staircase nodes, since dibner only has stairs afaik
-    string stairID(1,src->id[0]);
-    stairID += "_staircase";
+    //will need to be updated in case of multiple staircases or accessibility
+    string stairID;
+    int currFl = srcFl;
+    double dist = 0;
+
+    double currX = srcX;
+    double currY = srcY;
+    double nextX;
+    double nextY;
+
+    while (currFl != dstFl){
+      stairID = to_string(floor);
+      stairID += "_staircase";
+
+      //assuming global nodes (in a dictionary potentially)
+      //Node* stair = /global node collection/["stairID"]
+      Node stair("4_test", "Test"); //fill in for now
+      stair.location_x = 49;
+      stair.location_y = 9;
+
+      nextX = stair.location_x;
+      nextY = stair.location_y;
+
+      //dist from current loc to next loc
+      dist += pythagDist(currX, currY, nextX, nextY);
+
+      currX = nextX;
+      currY = nextY;
+      currFl++;
+    }
+
+
     return 0;
   }
+}
+
+double pythagDist(double srcX, double srcY, double dstX, double dstY){
+  return sqrt(pow(srcX - dstX,2) + pow(srcY - dstY,2));
 }
 
 int main() {
