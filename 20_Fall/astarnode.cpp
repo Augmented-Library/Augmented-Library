@@ -86,19 +86,31 @@ struct AStarNode{
   //each node id needed to get from starting to current node
   //will be separated by comma
   string path;
+  public AStarNode(Node loc, string new_path){
+    location = *loc;
+    path = new_path;
+  }
 };
 
 class Library{ //might be useful..?
   //overarching struct
   public struct Floor{
-    AStarNode nodesOnFloor[5];
-    AStarNode entrence;
-    AstarNode exit;
+    AStarNode* nodesOnFloor[5];
+    AStarNode* entrence;
+    AstarNode* exit;
   };
+  
   public Library(string new_name, int num_floors){
     name = new_name;
     levels = new Floor[num_floors];
-  };
+  }
+  public addAStarNode(AStarNode node, int floor = 0){
+    levels[floor].nodesOnFloor.push_back(node);
+  }
+  public addNode(Node new_node, int floor = 0){
+    levels[floor].nodesOnFloor.push_back(new AStarNode(new_node,"unknown_path???"));
+  }
+  
   Floor levels[];
   string name;
 };
@@ -106,17 +118,23 @@ class Library{ //might be useful..?
 int main() {
   Library tandon = new Library("Tandon Library", 2);
   
-  Node entrance("3_entrance", "Entrance");
+  Node entrance("3_entrance", "Entrance"); //init nodes
   Node front_desk("3_frontdesk", "Front Desk");
   Node intersection1("3_intersection_1", "Intersection 1");
   Node sofa("3_sofa", "Sofa");
   Node computer("3_computer_1", "Computers 1");
 
-  entrance.addNode(front_desk);
+  entrance.addNode(front_desk); //linking
   intersection1.addNode(sofa);
   intersection1.addNode(computer);
-
-  entrance.displayNode();
+  
+  tandon.addNode(entrance); //adding to struct for future ref
+  tandon.addNode(front_desk);
+  tandon.addNode(intersection1);
+  tandon.addNode(sofa);
+  tandon.addNode(computer);
+  
+  entrance.displayNode(); //test
   front_desk.displayNode();
   intersection1.displayNode();
   sofa.displayNode();
