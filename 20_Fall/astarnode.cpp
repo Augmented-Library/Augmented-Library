@@ -95,20 +95,17 @@ struct AStarNode{
 class Library{ //might be useful..?
   //overarching struct
   public struct Floor{
-    AStarNode* nodesOnFloor[5];
-    AStarNode* entrence;
-    AstarNode* exit;
+    Node* nodesOnFloor[5];
+    Node* entrence;
+    Node* exit;
   };
   
   public Library(string new_name, int num_floors){
     name = new_name;
     levels = new Floor[num_floors];
   }
-  public addAStarNode(AStarNode node, int floor = 0){
-    levels[floor].nodesOnFloor.push_back(node);
-  }
-  public addNode(Node new_node, int floor = 0){
-    levels[floor].nodesOnFloor.push_back(new AStarNode(new_node,"unknown_path???"));
+  public addAStarNode(Node new_node, int floor = 0){
+    levels[floor].nodesOnFloor.push_back(new_node);
   }
   
   Floor levels[];
