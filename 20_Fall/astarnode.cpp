@@ -101,7 +101,7 @@ class Library{ //might be useful..?
     Node* entrence;
     Node* exit;
   };
-  
+
   public Library(string new_name, int num_floors){
     name = new_name;
     levels = new Floor[num_floors];
@@ -109,30 +109,57 @@ class Library{ //might be useful..?
   public addAStarNode(Node new_node, int floor = 0){
     levels[floor].nodesOnFloor.push_back(new_node);
   }
-  
+
   Floor levels[];
   string name;
 };
 
+double getEstimatedDist(Node* src, Node* dst){
+  int srcFl = stoi(src->id.substr(0,1));
+  int dstFl = stoi(dst->id.substr(0,1));
+  if (srcFl == dstFl){ //on same floor
+    double srcX = src->location_x;
+    double srcY = src->location_y;
+    double dstX = dst->location_x;
+    double dstY = dst->location_y;
+
+    return sqrt(pow(srcX - dstX,2) + pow(srcY - dstY,2));
+  }
+  else { //on different floor
+    // WIP
+    //will only account for staircase nodes, since dibner only has stairs afaik
+    string stairID(1,src->id[0]);
+    stairID += "_staircase";
+    return 0;
+  }
+}
+
 int main() {
   Library tandon = new Library("Tandon Library", 2);
-  
+
   Node entrance("3_entrance", "Entrance"); //init nodes
   Node front_desk("3_frontdesk", "Front Desk");
   Node intersection1("3_intersection_1", "Intersection 1");
   Node sofa("3_sofa", "Sofa");
   Node computer("3_computer_1", "Computers 1");
+  Node fourth_floor("4_test", "Test");
 
   entrance.addNode(front_desk); //linking
   intersection1.addNode(sofa);
   intersection1.addNode(computer);
-  
+
   tandon.addNode(entrance); //adding to struct for future ref
   tandon.addNode(front_desk);
   tandon.addNode(intersection1);
   tandon.addNode(sofa);
   tandon.addNode(computer);
-  
+
+  entrance.location_x = 18;
+  entrance.location_y = 9;
+  fourth_floor.location_x = 18;
+  fourth_floor.location_y = 9;
+  getEstimatedDist(&entrance, &front_desk);
+
   entrance.displayNode(); //test
   front_desk.displayNode();
   intersection1.displayNode();
