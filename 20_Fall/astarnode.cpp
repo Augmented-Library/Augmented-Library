@@ -14,6 +14,8 @@ public:
   int location_y;
 
   Node* adjacentNodes[5];
+  //Node: Can add dll functionality for search so user has to search once instead of twice to get to and from a given location
+  //Node* previous_search;
 
   Node(string idname, string dispname){
     id = idname;
