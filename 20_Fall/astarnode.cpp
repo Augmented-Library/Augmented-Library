@@ -88,7 +88,24 @@ struct AStarNode{
   string path;
 };
 
+class Library{ //might be useful..?
+  //overarching struct
+  public struct Floor{
+    AStarNode nodesOnFloor[5];
+    AStarNode entrence;
+    AstarNode exit;
+  };
+  public Library(string new_name, int num_floors){
+    name = new_name;
+    levels = new Floor[num_floors];
+  };
+  Floor levels[];
+  string name;
+};
+
 int main() {
+  Library tandon = new Library("Tandon Library", 2);
+  
   Node entrance("3_entrance", "Entrance");
   Node front_desk("3_frontdesk", "Front Desk");
   Node intersection1("3_intersection_1", "Intersection 1");
