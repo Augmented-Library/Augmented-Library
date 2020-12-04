@@ -1,3 +1,4 @@
-//Test data text for import later
-//Format: floor#, x, y, name string
-1, 
+F, -Test data text for import later
+F, -Format: valid, name, id_name, floor, x, y
+F, 
+T, Entrance, 3_entrance, 0, 18,9

@@ -97,6 +97,11 @@ struct AStarNode{
 };
 
 class Library{ //might be useful..?
+//    friend ostream& operator<<(ostream& os, const Library& lib){
+//        os << "[" << lib.join(",") << ": " << war.getStrength();
+//        return os;
+//    }
+public:
     //overarching struct
     public struct Floor{
         Node* nodesOnFloor[5];
@@ -108,7 +113,7 @@ class Library{ //might be useful..?
         name = new_name;
         levels = new Floor[num_floors];
     }
-    public addAStarNode(Node new_node, int floor = 0){
+    public addNode(Node new_node, int floor = 0){
         levels[floor].nodesOnFloor.push_back(new_node);
     }
 
@@ -170,16 +175,40 @@ double pythagDist(double srcX, double srcY, double dstX, double dstY){
 }
 
 int main() {
-  //imports
+    //init
+    Library tandon = new Library("Tandon Library", 2);
+    //imports
     ifstream ifs;
     string fileName = ""
+    bool hasImport = true;
     do{ //open file
         cout << "Import File Name: " << endl;
         cin >> fileName;
+        if (fileName == "" || fileName = "no file"){
+            hasImport = false;
+        }
         ifs.open(fileName);
-    }while(!ifs);
+    }while(!ifs && hasImport);
     
-    Library tandon = new Library("Tandon Library", 2);
+    string isValid;
+    string name;
+    string id;
+    int floor;
+    float x, y;
+    while (getline(ifs, isValid, name, id, floor, x, y)){ //adds the file contents line by line to vector
+        if (isValid == "T"){
+            string[] vals = line.
+            Node newNode(id, name);
+            newNode.location_x = x;
+            newNode.location_y = y;
+            tandon.addNode(newNode, floor);
+            cout << "Good Line Read: " << newNode << endl;
+        }
+        else{
+            cout << "Invalid Line Read: " + name + id << endl;
+        }
+    }
+    ifs.close();
 
     Node entrance("3_entrance", "Entrance"); //init nodes
     Node front_desk("3_frontdesk", "Front Desk");
