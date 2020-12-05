@@ -114,19 +114,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             //Get URL based on name of detected image
             let detectedImageName = referenceImage.name ?? ""
             
-            if(detectedImageName != "firebaseLogo"){
-                self.loadURL(imageName: detectedImageName)
+            
+            
+            switch detectedImageName{
+                case "dataMangaement":
+                    self.loadURL(imageName: detectedImageName)
+                case "firebaseLogo",
+                     "slackLogo":
+                    //self.createAnAlert(imageName: detectedImageName)
+                    self.createFlyer(imageName: detectedImageName)
+                    print("DONE")
+                default:
+                    print("???")
             }
-            else{
-                switch detectedImageName{
-                    case "firebaseLogo":
-                        self.createAnAlert(imageName: detectedImageName)
-                        print("DONE")
-                        
-                    default:
-                        print("???")
-                }
-            }
+        
+            
             
         }
 
@@ -194,6 +196,62 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         title: "NO", style: .cancel, handler: nil
                     ))
                     self.present(alert, animated: true)
+                }
+            }
+        }
+    }
+    
+    func createFlyer(imageName: String){
+        let db = Firestore.firestore()
+        let flyersRef = db.collection("flyers")
+        let flyerQuery = flyersRef.whereField("title", isEqualTo: imageName)
+        // should just this TBH:
+        // db.collection("flyers").whereField("title", isEqualTo: imageName)
+        flyerQuery.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            }
+            else {
+                print("IN THE ELSE PORTION")
+                for document in querySnapshot!.documents {
+                    let flyerTitle = document.get("title") as! String
+                    let flyerDes = document.get("description") as! String
+                    
+                    //creat a Text Geometry that has depth and a text
+                    let text = SCNText(string: flyerTitle + "\n" + flyerDes, extrusionDepth: 1)
+                    //create material object that sets material to green and the text has the material
+                    let material = SCNMaterial()
+                    text.materials = [material]
+                    //create a node object with speficifed position and size
+                    //set the text geometry to the node
+                    let node = SCNNode()
+                    //node.position = SCNVector3(x:0, y:0.2, z:-0.1)
+                    node.scale = SCNVector3(x:0.005, y:0.005, z:0.005)
+                    node.geometry = text
+                    
+                    
+                    
+                    //add the node to the sceneView
+                    self.sceneView.scene.rootNode.addChildNode(node)
+                    
+                    //this should make the text always face the camera
+                    
+                    //EulerAngles doesn't work; it's titled around 45 degrees
+                    //let eulerAngles = self.sceneView.session.currentFrame?.camera.eulerAngles
+                    //node.eulerAngles = SCNVector3(eulerAngles?.x ?? 0, eulerAngles?.y ?? 0, eulerAngles?.z ?? 0 + .pi/2)
+                    
+                    //text doesn't appear
+                    //node.constraints=[SCNBillboardConstraint()]
+                    
+                    //text doesn't appear with this method too
+                    //let billboardConstraint = SCNBillboardConstraint()
+                    //billboardConstraint.freeAxes = SCNBillboardAxis.Y
+                    //node.constraints=[billboardConstraint]
+                    
+                    //enable lighting to display shadows
+                    self.sceneView.autoenablesDefaultLighting = true
+                    
+                    print("CREATED")
                 }
             }
         }
