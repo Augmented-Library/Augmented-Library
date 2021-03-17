@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
-  </head>
-  <body>
-    Github Repo Link: <a href="https://github.com/Augmented-Library/Augmented-Library/">Augmented Library</a>
-    <button id="read">Test Read</button>
-    <script src="./app.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+  <script src="scripts/config.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+  <div>
+    Github Repo Link: <a href="https://dng1999.github.io/Aug-Lib-Demo/services.html">Demo</a>
+  </div>
+
+  <div id="services">
+    <form id="addService">
+      <table id="serviceTable">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Location</th>
+          <th>Options</th>
+        </tr>
+        <tr>
+          <td><input type="text" name="serviceName"></td>
+          <td><input type="text" name="serviceDesc"></td>
+          <td><input type="text" name="serviceLoc"></td>
+          <td><input type="submit" id="addServicebtn" value="Add"></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <script src="scripts/app.js"></script>
+</body>
+
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+  </head>
+  <body>
+    Github Repo Link: <a href="https://github.com/Augmented-Library/Augmented-Library/">Augmented Library</a>
+    <button id="read">Test Read</button>
+    <button id="write">Test Write</button>
+    <script>
+    const readTest = document.querySelector('#read');
+    const writeTest = document.querySelector('#write');
+
+    readTest.addEventListener("click", function(){
+      firestore.collection("libserv").get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+              console.log(doc.data());
+          });
+      });
+    });
+
+    writeTest.addEventListener("click", function(){
+      firestore.collection("libserv").add({
+        Description: "Test Write",
+        Location: "Test Write",
+        Name: "Test Write"
+      });
+      console.log("Wrote to database");
+    });
+    </script>
+  </body>
+</html>
