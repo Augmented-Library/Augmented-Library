@@ -14,7 +14,9 @@ input{
   width: 100%;
 }
 
-input[type="submit"]{
+#addSvcBtn{
+  box-sizing: border-box;
+  width: 100%;
   background-color: #4ad613;
   color: white;
 }

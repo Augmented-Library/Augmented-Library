@@ -7,34 +7,32 @@
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
-  <script src="scripts/config.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <script src="static/scripts/config.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/styles/style.css">
 </head>
 
 <body>
   <div>
-    Github Repo Link: <a href="https://dng1999.github.io/Aug-Lib-Demo/services.html">Demo</a>
+    Github Repo Link: <a href="https://augmented-library.github.io/Augmented-Library/">Demo</a>
   </div>
 
   <div id="services">
-    <form id="addService">
-      <table id="serviceTable">
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Location</th>
-          <th>Options</th>
-        </tr>
-        <tr>
-          <td><input type="text" name="serviceName"></td>
-          <td><input type="text" name="serviceDesc"></td>
-          <td><input type="text" name="serviceLoc"></td>
-          <td><input type="submit" id="addServicebtn" value="Add"></td>
-        </tr>
-      </table>
-    </form>
+    <table id="serviceTable">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Options</th>
+      </tr>
+      <tr>
+        <td><input type="text" id="addSvcName"></td>
+        <td><input type="text" id="addSvcDesc"></td>
+        <td><input type="text" id="addSvcLoc"></td>
+        <td><button id="addSvcBtn">Add</td>
+      </tr>
+    </table>
   </div>
-  <script src="scripts/app.js"></script>
+  <script src="static/scripts/app.js"></script>
 </body>
 
 </html>
