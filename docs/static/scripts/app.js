@@ -47,7 +47,7 @@ function writeDB(){
   });
 }
 
-if (currentPathname == '/Aug-Lib-Demo/') {
+if (currentPathname == '/Augmented-Library/') {
 
   //Add data from Firebase to table and then display table
   var serviceTable = document.querySelector('#serviceTable');
