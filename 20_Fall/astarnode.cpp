@@ -264,18 +264,21 @@ int main() {
             }
             autoID++;
             tandon.addNode(newNode, int(components[2]));
-            cout << "Good Line Read: " << newNode << endl;
+            cout << "Imported Node: " << newNode << endl;
         }
         else if (isValid == "B"){
             xstart = int(components[1]);
             xend = int(components[2]);
             ystart = int(components[3]);
             yend = int(components[4]);
+            to_print = ""
             for(int x = xstart; x < xend; x++){
                 for(int y = ystart; y < yend; y++){
                     boundaries.push([x,y]);
+                    to_print += "(" + x + ", " + y + "), ";
                 }
             }
+            cout << "Imported Boundaries: " << to_print << endl;
         }
         else if (isValid == "I"){
             autoID = int(components[1]);
