@@ -1,4 +1,16 @@
-F, -Test data text for import later
-F, -Format: valid, name, id_name, floor, x, y
-F, 
-T, Entrance, 3_entrance, 0, 18,9
+C, Test data text for import later
+C, TypeInput, Name, Floor, X_Location, Y_Location
+C, string,  string,  int,    float,     float
+C, TYPE-key {"N":node, "C":comment, "B":boundary, "I":IDstart}
+C, Boundary-key xstart, xend, ystart, yend
+C,
+I, 1
+C, Dibner 3rd Floor: https://drive.google.com/file/d/0B_xsMZay49SrS3lDNUlDMDVqMHM/view
+B, 0, 28, 0, 0
+B, 0, 0, 0, 18
+B, 28, 28, 0, 18
+B, 0, 28, 18, 18
+C, 
+N, 300DCorridorEntrenceDoor, 1, 4, 8
+N, 300DCorridorExitDoor, 1, 8, 8
+N, A9.BLobby, 1, 8, 8

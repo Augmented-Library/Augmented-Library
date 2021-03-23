@@ -7,6 +7,35 @@ using namespace std;
 
 //node class to indicate points of interest in library and main intersections
 //wip: showing the actual path between two nodes, since they won't all be straight lines
+
+/*  Sample Nodelay: https://github.com/clementmihailescu/Pathfinding-Visualizer/blob/master/public/browser/node.js
+ function Node(id, status) {
+   this.id = id;
+   this.status = status;
+   this.previousNode = null;
+   this.path = null;
+   this.direction = null;
+   this.storedDirection = null;
+   this.distance = Infinity;
+   this.totalDistance = Infinity;
+   this.heuristicDistance = null;
+   this.weight = 0;
+   this.relatesToObject = false;
+   this.overwriteObjectRelation = false;
+
+   this.otherid = id;
+   this.otherstatus = status;
+   this.otherpreviousNode = null;
+   this.otherpath = null;
+   this.otherdirection = null;
+   this.otherstoredDirection = null;
+   this.otherdistance = Infinity;
+   this.otherweight = 0;
+   this.otherrelatesToObject = false;
+   this.otheroverwriteObjectRelation = false;
+ }
+ */
+
 class Node{
 public:
     string id;
@@ -15,14 +44,16 @@ public:
     int location_x;
     int location_y;
 
-    Node* adjacentNodes[5];
+    Node* adjacentNodes[5]; //Question: How do we define these @Dorthy?
     //Node: Can add dll functionality for search so user has to search once instead of twice to get to and from a given location
     //Node* previous_search;
 
-    Node(string idname, string dispname){
+    Node(string idname, string dispname, x_loc, y_loc){
         id = idname;
         displayName = dispname;
-        for(int i = 0; i<5; i++){
+        location_x = x_loc;
+        location_y = y_loc;
+        for(int i = 0; i<5; i++){ //default size
             adjacentNodes[i] = nullptr;
         }
     }
@@ -122,6 +153,30 @@ public:
     };
 
 //test only with same floor nodes
+/* Sample Search Structure: https://github.com/clementmihailescu/Pathfinding-Visualizer/blob/master/public/browser/pathfindingAlgorithms/astar.js
+ function astar(nodes, start, target, nodesToAnimate, boardArray, name, heuristic) {
+   if (!start || !target || start === target) {
+     return false;
+   }
+   nodes[start].distance = 0;
+   nodes[start].totalDistance = 0;
+   nodes[start].direction = "up";
+   let unvisitedNodes = Object.keys(nodes);
+   while (unvisitedNodes.length) {
+     let currentNode = closestNode(nodes, unvisitedNodes);
+     while (currentNode.status === "wall" && unvisitedNodes.length) {
+       currentNode = closestNode(nodes, unvisitedNodes)
+     }
+     if (currentNode.distance === Infinity) return false;
+     nodesToAnimate.push(currentNode);
+     currentNode.status = "visited";
+     if (currentNode.id === target) {
+       return "success!";
+     }
+     updateNeighbors(nodes, currentNode, boardArray, target, name, start, heuristic);
+   }
+ }
+ */
 double getEstimatedDist(Node* src, Node* dst){
     int srcFl = stoi(src->id.substr(0,1));
     int dstFl = stoi(dst->id.substr(0,1));
@@ -177,6 +232,7 @@ double pythagDist(double srcX, double srcY, double dstX, double dstY){
 int main() {
     //init
     Library tandon = new Library("Tandon Library", 2);
+    
     //imports
     ifstream ifs;
     string fileName = ""
@@ -190,19 +246,42 @@ int main() {
         ifs.open(fileName);
     }while(!ifs && hasImport);
     
-    string isValid;
-    string name;
-    string id;
-    int floor;
-    float x, y;
-    while (getline(ifs, isValid, name, id, floor, x, y)){ //adds the file contents line by line to vector
-        if (isValid == "T"){
-            string[] vals = line.
-            Node newNode(id, name);
-            newNode.location_x = x;
-            newNode.location_y = y;
-            tandon.addNode(newNode, floor);
+    string line;
+    string[] components;
+    Node* start;
+    const int[][] boundaries;
+    int autoID = 1;
+    while (getline(ifs, line)){ //adds the file contents line by line to vector
+        //TypeInput, Name, Floor, X_Location, Y_Location
+        //string, string, int, float, float
+        //TYPE-key {"N":node, "C":comment, "B":boundary, "I":IDstart}
+        components = line.trim()split(","); //unsure if trim and split exist in c++ TODO: check
+        //isValid, name, id, floor, x, y
+        if (isValid == "N"){
+            Node newNode(autoID, components[1], float(components[3]), float(components[4]));
+            if (autoID == 1){
+                start = &newNode;
+            }
+            autoID++;
+            tandon.addNode(newNode, int(components[2]));
             cout << "Good Line Read: " << newNode << endl;
+        }
+        else if (isValid == "B"){
+            xstart = int(components[1]);
+            xend = int(components[2]);
+            ystart = int(components[3]);
+            yend = int(components[4]);
+            for(int x = xstart; x < xend; x++){
+                for(int y = ystart; y < yend; y++){
+                    boundaries.push([x,y]);
+                }
+            }
+        }
+        else if (isValid == "I"){
+            autoID = int(components[1]);
+        }
+        else if (isValid == "C"){
+            //comment
         }
         else{
             cout << "Invalid Line Read: " + name + id << endl;
@@ -210,7 +289,9 @@ int main() {
     }
     ifs.close();
 
-    Node entrance("3_entrance", "Entrance"); //init nodes
+    
+    
+    Node entrance("3_entrance", "Entrance"); //init hardcode nodes
     Node front_desk("3_frontdesk", "Front Desk");
     Node intersection1("3_intersection_1", "Intersection 1");
     Node sofa("3_sofa", "Sofa");
