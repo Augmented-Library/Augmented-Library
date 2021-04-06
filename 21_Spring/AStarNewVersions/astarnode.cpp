@@ -259,17 +259,17 @@ int main() {
         components = line.trim().split(","); //unsure if trim and split exist in c++ TODO: check
         cout << "Components: " << components << endl;
         //isValid, name, id, floor, x, y
-        isValid = components[0];
+        isValid = components[0]; //basically checks what kind of input we're looking at, if its an input at all
         if (isValid == "N"){
             Node newNode(autoID, components[1], float(components[3]), float(components[4]));
             if (autoID == 1){
-                start = &newNode;
+                start = &newNode; //keeping track of node change
             }
-            autoID++;
+            autoID++; //just a msc identifier to help with handling places with the same string name
             tandon.addNode(newNode, int(components[2]));
             cout << "Imported Node: " << newNode << endl;
         }
-        else if (isValid == "B"){
+        else if (isValid == "B"){ //helps with mapping and visualizing
             xstart = int(components[1]);
             xend = int(components[2]);
             ystart = int(components[3]);
@@ -283,11 +283,11 @@ int main() {
             }
             cout << "Imported Boundaries: " << to_print << endl;
         }
-        else if (isValid == "I"){
+        else if (isValid == "I"){ //so no ID's repeat, we check current node number in database and start file with that number+1
             autoID = int(components[1]);
         }
         else if (isValid == "C"){
-            //comment
+            //comment line
         }
         else{
             cout << "Invalid Line Read: " + name + id << endl;
