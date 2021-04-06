@@ -251,12 +251,15 @@ int main() {
     Node* start;
     const int[][] boundaries;
     int autoID = 1;
-    while (getline(ifs, line)){ //adds the file contents line by line to vector
+    while (getline(ifs, line)){ //adds the file contents line by line
+        cout << "Testing Input: " << line << endl;
         //TypeInput, Name, Floor, X_Location, Y_Location
         //string, string, int, float, float
         //TYPE-key {"N":node, "C":comment, "B":boundary, "I":IDstart}
-        components = line.trim()split(","); //unsure if trim and split exist in c++ TODO: check
+        components = line.trim().split(","); //unsure if trim and split exist in c++ TODO: check
+        cout << "Components: " << components << endl;
         //isValid, name, id, floor, x, y
+        isValid = components[0];
         if (isValid == "N"){
             Node newNode(autoID, components[1], float(components[3]), float(components[4]));
             if (autoID == 1){
