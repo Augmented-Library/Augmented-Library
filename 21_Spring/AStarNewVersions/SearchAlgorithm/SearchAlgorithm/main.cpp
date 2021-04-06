@@ -6,10 +6,13 @@
 //  Copyright © 2021 NYU Augmented Library VIP. All rights reserved.
 //
 
-#include <iostream>
+#include "AStar.h"
+using namespace std;
+using namespace SearchAlgorithms;
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    std::cout << "Testing..." << endl;
+    run_test();
     return 0;
 }

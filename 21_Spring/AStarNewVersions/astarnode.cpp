@@ -5,6 +5,8 @@
 #include <fstream>
 using namespace std;
 
+//OLD
+
 //node class to indicate points of interest in library and main intersections
 //wip: showing the actual path between two nodes, since they won't all be straight lines
 
@@ -229,13 +231,13 @@ double pythagDist(double srcX, double srcY, double dstX, double dstY){
     (pow(srcX - dstX,2) + pow(srcY - dstY,2));
 }
 
-int main() {
+int run_test() {
     //init
     Library tandon = new Library("Tandon Library", 2);
     
     //imports
     ifstream ifs;
-    string fileName = ""
+    string fileName = "test-data.txt"//""
     bool hasImport = true;
     do{ //open file
         cout << "Import File Name: " << endl;
@@ -246,6 +248,7 @@ int main() {
         ifs.open(fileName);
     }while(!ifs && hasImport);
     
+    //import data
     string line;
     string[] components;
     Node* start;
@@ -294,10 +297,10 @@ int main() {
         }
     }
     ifs.close();
-
     
     
-    Node entrance("3_entrance", "Entrance"); //init hardcode nodes
+    //init hardcoded nodes
+    Node entrance("3_entrance", "Entrance");
     Node front_desk("3_frontdesk", "Front Desk");
     Node intersection1("3_intersection_1", "Intersection 1");
     Node sofa("3_sofa", "Sofa");

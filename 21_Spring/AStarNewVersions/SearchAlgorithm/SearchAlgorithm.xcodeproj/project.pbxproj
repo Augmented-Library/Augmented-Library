@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7B88261A261CB90E00C9D850 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B882619261CB90E00C9D850 /* main.cpp */; };
-		7B882621261CB92100C9D850 /* astarnode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B882620261CB92100C9D850 /* astarnode.cpp */; };
+		7B882625261CC16B00C9D850 /* AStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B882624261CC16B00C9D850 /* AStar.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +26,9 @@
 /* Begin PBXFileReference section */
 		7B882616261CB90E00C9D850 /* SearchAlgorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SearchAlgorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B882619261CB90E00C9D850 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		7B882620261CB92100C9D850 /* astarnode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = astarnode.cpp; sourceTree = "<group>"; };
+		7B882622261CBA6400C9D850 /* test-data.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "test-data.txt"; path = "/Users/korapc/Documents/GitHub/Augmented-Library/21_Spring/AStarNewVersions/SearchAlgorithm/SearchAlgorithm/test-data.txt"; sourceTree = "<absolute>"; };
+		7B882623261CBE4500C9D850 /* AStar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AStar.h; path = "/Users/korapc/Documents/GitHub/Augmented-Library/21_Spring/AStarNewVersions/SearchAlgorithm/SearchAlgorithm/AStar.h"; sourceTree = "<absolute>"; };
+		7B882624261CC16B00C9D850 /* AStar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AStar.cpp; path = "/Users/korapc/Documents/GitHub/Augmented-Library/21_Spring/AStarNewVersions/SearchAlgorithm/SearchAlgorithm/AStar.cpp"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +61,10 @@
 		7B882618261CB90E00C9D850 /* SearchAlgorithm */ = {
 			isa = PBXGroup;
 			children = (
-				7B882620261CB92100C9D850 /* astarnode.cpp */,
 				7B882619261CB90E00C9D850 /* main.cpp */,
+				7B882624261CC16B00C9D850 /* AStar.cpp */,
+				7B882623261CBE4500C9D850 /* AStar.h */,
+				7B882622261CBA6400C9D850 /* test-data.txt */,
 			);
 			path = SearchAlgorithm;
 			sourceTree = "<group>";
@@ -122,8 +126,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B882625261CC16B00C9D850 /* AStar.cpp in Sources */,
 				7B88261A261CB90E00C9D850 /* main.cpp in Sources */,
-				7B882621261CB92100C9D850 /* astarnode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
