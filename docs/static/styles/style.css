@@ -1,22 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+.nameHdr {
+  width: 25%;
+}
+
+.descHdr {
+  width: 40%;
+}
+
+.locHdr, .optHdr {
+  width: auto;
+}
+
+.removeBtn, .cancelBtn {
+  background-color: #ff0000;
+  color: white;
+  width: 49%;
+}
+
+.editBtn {
+  background-color: #4a4f55;
+  color: white;
+  width: 49%;
+}
+
+#addSvcBtn {
+  background-color: #4ad613;
+  box-sizing: border-box;
+  color: white;
+  width: 100%;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
 table {
+  border: 1px solid #ccc;
   border-collapse: collapse;
   table-layout: fixed;
-  width: 80%;
+  width: 900px;
   visibility: visible;
+  padding: 10px;
 }
 
-table,th,tr,td {
-  border: 1px solid black;
+th {
+  background-color: #57068c;
+  color: #FFF;
+  text-align: left;
 }
 
-input{
+th, td {
+  padding: 7px;
+  padding-left: 20px;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+tr:nth-child(odd) {
+  background-color: #e2e1dd;
+}
+
+tr:hover {
+  background-color: #b5ada6;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
   box-sizing: border-box;
+  padding: 7px;
   width: 100%;
 }
 
-#addSvcBtn{
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #4ad613;
-  color: white;
+button {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  padding: 7px;
 }
