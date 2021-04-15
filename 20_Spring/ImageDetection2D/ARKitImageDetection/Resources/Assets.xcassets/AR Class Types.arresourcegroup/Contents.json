@@ -1,0 +1,20 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "resources" : [
+    {
+      "filename" : "coffeecake.arreferenceimage"
+    },
+    {
+      "filename" : "dataManagement.arreferenceimage"
+    },
+    {
+      "filename" : "firebaseLogo.arreferenceimage"
+    },
+    {
+      "filename" : "slackLogo.arreferenceimage"
+    }
+  ]
+}
