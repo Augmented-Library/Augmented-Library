@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<title>Flyers - Augmented Library VIP</title>
+<style>
+.label1 {
+    color: black;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial;
+}
+.bottomEight {
+	margin-bottom: 8px;
+}
+input[type=text], select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+.button1 {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 30px;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	margin: 8px 0;
+}
+</style>
+</head>
+<body>
+<h3>Flyers</h3>
+<form action="/updateFlyer" method="POST">
+    {% for field, value in data %}
+        <label for="{{field}}" class="label1">{{field}}</label>
+        <div id="{{field}}">
+            <input type="text" id="{{field}}" name="{{field}}" value="{{value}}" required>
+        </div>
+        <p class="bottomEight"/>
+    {% endfor %}
+    <input type="submit" class="button1" value="Submit"/>
+</form>
+{% if error %}
+    <p>{{error}}</p>
+{% endif %}
+{% if note %}
+    <p>{{note}}</p>
+{% endif %}
+</body>
+</html>
