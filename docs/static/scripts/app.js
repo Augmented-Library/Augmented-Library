@@ -76,9 +76,59 @@ function createEditButton(){
 }
 
 function editRow(){
+  var cols = ['Name', 'Description', 'Location'];
+
   var rowElement = this.parentElement.parentElement;
+  var rowValues = rowElement.childNodes;
+  var popup = document.querySelector('#edit-popup');
+  popup.style.display = 'block';
+  var popupBG = document.querySelector('#edit-popup-overlay');
+  popupBG.style.display = 'block';
+
+  var contents = document.querySelector('#edit-popup-contents');
+  contents.name = rowElement.id;
+  contents.innerHTML = '';
+  for (let i = 0; i < 3; i++){
+    var label = document.createElement('label');
+    label.innerHTML = cols[i];
+    var textInput = document.createElement('input');
+    textInput.type = 'text';
+    textInput.value = rowValues[i].innerHTML;
+    contents.append(label);
+    contents.append(textInput);
+  };
+
   //var rowDoc = firestore.collection('libserv').doc(rowElement.id).get();
-  console.log("Edit button clicked: ", rowElement.id);
+}
+
+// Ugly code, doesn't update the table
+function saveEdit(){
+  var popup = document.querySelector('#edit-popup-contents');
+  var popupContent = popup.childNodes;
+  var newValues = [];
+  for (let i = 0; i < popupContent.length; i++){
+    if (popupContent[i].nodeName == "INPUT"){
+      newValues.push(popupContent[i].value);
+    }
+  }
+
+  firestore.collection('libserv').doc(popup.name).update({
+    name: newValues[0],
+    description: newValues[1],
+    location: newValues[2]
+  })
+  .then(() => {
+    console.log("Updated: ", popup.name);
+    document.querySelector('#edit-popup-overlay').style.display = 'none';
+  })
+}
+
+function cancelEdit(){
+  var popup = document.querySelector('#edit-popup');
+  popup.style.display = 'none';
+
+  var popupBG = document.querySelector('#edit-popup-overlay');
+  popupBG.style.display = 'none';
 }
 
 function createRmButton(){
@@ -100,7 +150,7 @@ function removeRow(){
 }
 
 //-----------RUNS WHEN PAGE LOADS-----------
-if (currentPathname == '/Augmented-Library/') {
+if (currentPathname == '/'){//Augmented-Library/') {
   //Add data from Firebase to table and then display table
   var serviceTable = document.querySelector('#serviceTable');
   var readFlag = false;
@@ -111,4 +161,12 @@ if (currentPathname == '/Augmented-Library/') {
   //Add data to Firebase
   var submitButton = document.querySelector('#addSvcBtn');
   submitButton.addEventListener('click',writeDB);
+
+  //Save edit data to Firebase
+  var saveButton = document.querySelector('#saveBtn');
+  saveButton.addEventListener('click',saveEdit);
+
+  //Cancel edit data to Firebase
+  var cancelButton = document.querySelector('#cancelBtn');
+  cancelButton.addEventListener('click',cancelEdit);
 }
