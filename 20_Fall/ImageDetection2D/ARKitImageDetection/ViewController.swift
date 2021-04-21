@@ -79,6 +79,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         configuration.detectionImages = referenceImages
         session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
 
+        
+        //reset AR elements
+        self.sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+        }
+        
         statusViewController.scheduleMessage("Look around to detect images", inSeconds: 7.5, messageType: .contentPlacement)
 	}
 
