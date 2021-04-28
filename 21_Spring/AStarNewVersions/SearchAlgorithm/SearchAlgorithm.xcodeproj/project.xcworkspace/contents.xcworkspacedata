@@ -2,15 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/korapc/Documents/GitHub/Augmented-Library/21_Spring/AStarNewVersions/SearchAlgorithm/SearchAlgorithm/AStar.cpp">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/korapc/Documents/GitHub/Augmented-Library/21_Spring/AStarNewVersions/SearchAlgorithm/SearchAlgorithm/AStar.h">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/korapc/Documents/GitHub/Augmented-Library/21_Spring/AStarNewVersions/SearchAlgorithm/SearchAlgorithm/test-data.txt">
-   </FileRef>
-   <FileRef
       location = "self:SearchAlgorithm.xcodeproj">
    </FileRef>
 </Workspace>

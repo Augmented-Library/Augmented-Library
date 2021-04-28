@@ -9,6 +9,7 @@
 #define AStar_h
 #include <string>
 #include <iostream>
+#include <vector>
 //using namespace std;
 
 namespace SearchAlgorithms{
@@ -50,15 +51,16 @@ namespace SearchAlgorithms{
 
     class Library{
     private:
-        double pythagDist(double srcX, double srcY, double dstX, double dstY);
+        friend std::ostream& operator <<(std::ostream& os, const Library& lib); //toString override
+        double pythagDist(double srcX, double srcY, double dstX, double dstY) const;
     public:
         //overarching struct
         struct Floor{
-            Node* fNodes[1]; //aka nodes on the floor
+            std::vector<Node*> fNodes[1]; //aka nodes on the floor
             Node* entrence;
             Node* exit;
         };
-        Floor levels[1];
+        std::vector<Floor*> levels;
         std::string name;
         
         Library(std::string new_name, int num_floors = 2){
@@ -67,17 +69,15 @@ namespace SearchAlgorithms{
                 std::cout << "Error on Library declaration: num_floors < 0: " << num_floors << std::endl;
                 num_floors = 1;
             }
-            while (num_floors > 0){
-                Floor templateFloor; //to prevent shallow-copy issues
-                levels.push_back(templateFloor);
-                num_floors--;
+            for(unsigned i = 0; i < num_floors; i++){
+                levels.push_back(new Floor());
             }
         }
         
         void addNode(Node new_node, int floor);
-        bool isEmpty(int floor);
+        bool isEmpty(int floor) const;
         
-        double getEstimatedDist(Node* src, Node* dst);
+        double getEstimatedDist(Node* src, Node* dst) const;
     };
 
 
