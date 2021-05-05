@@ -120,6 +120,10 @@ function saveEdit(){
   .then(() => {
     console.log("Updated: ", popup.name);
     document.querySelector('#edit-popup-overlay').style.display = 'none';
+    var tableRowItems = document.querySelector('#'+popup.name).childNodes;
+    for (let i = 0; i < 3; i++){
+      tableRowItems[i].innerHTML = newValues[i];
+    }
   })
 }
 
@@ -150,7 +154,7 @@ function removeRow(){
 }
 
 //-----------RUNS WHEN PAGE LOADS-----------
-if (currentPathname == '/'){//Augmented-Library/') {
+if (currentPathname == 'Augmented-Library/'){
   //Add data from Firebase to table and then display table
   var serviceTable = document.querySelector('#serviceTable');
   var readFlag = false;
