@@ -51,6 +51,15 @@ namespace SearchAlgorithms{
         return this->id;
     }
 
+    //semi-copied from a_star.py
+    std::vector<Node*> Node::expand(std::vector<Node*> fNodes) const {
+        std::vector<Node*> closeNodes;
+        for (auto &Node : fNodes){
+            //Goal: search nodes on this node's floor (fNodes input) and return all of the adjacent nodes?
+        }
+        return closeNodes;
+    }
+
     bool Library::isEmpty(int floor = 0) const{
         return this->levels[floor].fNodes.size() > 1;
     }
@@ -122,5 +131,4 @@ namespace SearchAlgorithms{
         os << "}" << endl;
       return os;
     }
-
 }

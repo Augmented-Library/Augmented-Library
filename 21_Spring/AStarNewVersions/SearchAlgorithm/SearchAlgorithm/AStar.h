@@ -46,6 +46,8 @@ namespace SearchAlgorithms{
 
         void displayNode();
         
+        std::vector<Node*> expand(std::vector<Node*> fNodes) const;
+        
         std::string getID();
     };
 
