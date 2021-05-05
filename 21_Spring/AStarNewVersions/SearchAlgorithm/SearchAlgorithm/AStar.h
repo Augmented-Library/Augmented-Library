@@ -25,16 +25,18 @@ namespace SearchAlgorithms{
 
         int location_x = 0;
         int location_y = 0;
+        int floor = 0; //like z location?
 
         Node* adjacentNodes[5]; //Question: How do we define these @Dorthy?
         //Node: Can add dll functionality for search so user has to search once instead of twice to get to and from a given location
         //Node* previous_search;
 
-        Node(const int idname, const std::string& dispname, const int x_loc, const int y_loc) {
+        Node(const int idname, const std::string& dispname, const int x_loc, const int y_loc, const int z_loc) {
             id = idname;
             displayName = dispname;
             location_x = x_loc;
             location_y = y_loc;
+            floor = z_loc;
             for(int i = 0; i<5; i++){ //default size
                 adjacentNodes[i] = nullptr;
             }

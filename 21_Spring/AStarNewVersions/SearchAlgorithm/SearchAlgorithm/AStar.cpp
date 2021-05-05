@@ -52,10 +52,14 @@ namespace SearchAlgorithms{
     }
 
     //semi-copied from a_star.py
-    std::vector<Node*> Node::expand(std::vector<Node*> fNodes) const {
-        std::vector<Node*> closeNodes;
-        for (auto &Node : fNodes){
+    vector<Node*> Node::expand(std::vector<Node*> fNodes) const {
+        vector<Node*> closeNodes;
+        vector<float> dist;
+        for (Node* node : fNodes){
             //Goal: search nodes on this node's floor (fNodes input) and return all of the adjacent nodes?
+            if (node->floor == this->floor){ //extra check
+                dist.push_back(pythagDist(this->location_x, node->location_x, this->location_y, node->location_y))
+            }
         }
         return closeNodes;
     }
@@ -75,9 +79,10 @@ namespace SearchAlgorithms{
     }
 
 
-    double Library::pythagDist(double srcX, double srcY, double dstX, double dstY) const{ //TODO: fix pythag dist?
+    double pythagDist(double srcX, double srcY, double dstX, double dstY) { //TODO: fix pythag dist?
         return pow((srcX - dstX), 2) + pow((srcY - dstY), 2); //note sure what this is pow'ing
     }
+
     double Library::getEstimatedDist(Node* src, Node* dst) const{
         int srcFl = stoi(src->getID().substr(0,1));
         int dstFl = stoi(dst->getID().substr(0,1));
