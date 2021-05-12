@@ -154,7 +154,7 @@ function removeRow(){
 }
 
 //-----------RUNS WHEN PAGE LOADS-----------
-if (currentPathname == 'Augmented-Library/'){
+if (currentPathname == '/Augmented-Library/'){
   //Add data from Firebase to table and then display table
   var serviceTable = document.querySelector('#serviceTable');
   var readFlag = false;
